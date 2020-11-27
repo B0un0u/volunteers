@@ -22,8 +22,9 @@ thomas = User.create!(fullname: "Thomas", city: "à la maison", description: "j'
 puts "created #{User.count} users"
 
 
-mission1 = Mission.create!(title: "ramassage de déchets sur la plage", location: "Plage de Nice", description: "A l'occasion de la journee mondiale de l'environnement, nous organisons une collecte de déchets a la plage de Nice et nous cherchons plusieurs benevoles. Rendez-vous a 10h a la plage de Nice. ", user: user1, quota: 2, start_time: DateTime.new(2020,12,11,10,0,0), end_time: DateTime.new(2020,12,11,14,0,0))
-mission2 = Mission.create!(title: "distribution de repas pour les sans-abris", location: "Place Jean-Medecin", description: "Nous organisons une distribution de repas pour les sans-abris et nous avons beoin de benevoles pour nous aider dans la logistique.", user: user1, quota: 1, start_time: DateTime.new(2020,12,15,17,30,0), end_time: DateTime.new(2020,12,15,19,30,0))
+mission1 = Mission.create!(title: "ramassage de déchets sur la plage", location: "Plage de Nice", description: "A l'occasion de la journee mondiale de l'environnement, nous organisons une collecte de déchets a la plage de Nice et nous cherchons plusieurs benevoles. Rendez-vous a 10h a la plage de Nice. ", user: user1, quota: 25, start_time: DateTime.new(2020,12,11,10,0,0), end_time: DateTime.new(2020,12,11,14,0,0))
+mission2 = Mission.create!(title: "distribution de repas pour les sans-abris", location: "Place Jean-Medecin", description: "Nous organisons une distribution de repas pour les sans-abris et nous avons beoin de benevoles pour nous aider dans la logistique.", user: user1, quota: 10, start_time: DateTime.new(2020,11,28,14,00,0), end_time: DateTime.new(2020,11,28,19,30,0))
+mission3 = Mission.create!(title: "Maraude", location: "Vieux-port de Marseille", description: "Nous organisons une maraude pour les sans-abris et nous avons beoin de benevoles pour nous aider dans la logistique.", user: user1, quota: 3, start_time: DateTime.new(2020,11,25,14,00,0), end_time: DateTime.new(2020,11,26,19,30,0), done: true)
 
 
 puts "created #{Mission.count} missions"

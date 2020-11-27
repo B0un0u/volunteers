@@ -5,7 +5,7 @@
     <% if mission.done == false %>
       <%= link_to  mission_path(mission) do %>
         <% if mission.photo.attached?%>
-          <% if mission.participations.count == mission.quota %>
+          <% if mission.participations.count >= mission.quota %>
           <div class="card-category p-2 uncolored" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mission.photo.key %>');">
           <% else %>
           <div class="card-category p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mission.photo.key %>');">

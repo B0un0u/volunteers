@@ -9,7 +9,7 @@
     <p>Organisé par : </p>
     <div class = "avatar-large" >
      <% if @mission.user.photo.attached? %>
-      <%=cl_image_tag @mission.user.photo.key, height: 160, width: 160, crop: :fill, radius: 40, gravity: :face%>
+      <%=cl_image_tag @mission.user.photo.key, height: 80, width: 80, crop: :fill, radius: 40, gravity: :face, class: "avatar-large" %>
     <% else %>
       <%= image_tag "photo-avatar-profil.png", class: "avatar-large"%>
     <% end %>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
     <div>
-    <p class= "font-weight-bold "><i class="far fa-clock"></i> Date : </p> <p>Du <%= @mission.start_time.strftime("%d/%m/%Y") %> à <%= @mission.end_time.strftime("%k:%M") %> </p> <p>Au <%= @mission.start_time.strftime("%d/%m/%Y") %> à <%= @mission.start_time.strftime("%k:%M") %> </p>
+    <p class= "font-weight-bold "><i class="far fa-clock"></i> Date : </p> <p>Du <%= @mission.start_time.strftime("%d/%m/%Y") %> à <%= @mission.start_time.strftime("%k:%M") %> </p> <p>Au <%= @mission.end_time.strftime("%d/%m/%Y") %> à <%= @mission.end_time.strftime("%k:%M") %> </p>
     <p class= "font-weight-bold">  <i class="fas fa-map-marker-alt"></i> Localisation : </p><p style="width: 250px"><%= @mission.location.capitalize %></p>
     </div>
   </div>

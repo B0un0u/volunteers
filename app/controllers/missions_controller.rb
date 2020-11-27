@@ -41,6 +41,14 @@ class MissionsController < ApplicationController
     redirect_to missions_path
   end
 
+  def update
+    @mission = Mission.find(params[:id])
+    @mission.done = true
+    authorize @mission
+    @mission.update({ done: true })
+    redirect_to mission_path(@mission)
+  end
+
   private
 
   def mission_params

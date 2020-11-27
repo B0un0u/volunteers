@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post   '/account',  to: 'devise/registrations#create'
     get    '/register', to: 'devise/registrations#new',    as: :new_user_registration
     get    '/account',  to: 'devise/registrations#edit',   as: :edit_user_registration
-    patch  '/account',  to: 'users#update', as: :user_registration
+    # patch  '/account',  to: 'users#update', as: :user_registration
     get    '/account/cancel', to: 'devise/registrations#cancel', as: :cancel_user_registration
 
   end

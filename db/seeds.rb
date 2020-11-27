@@ -11,7 +11,7 @@ Mission.destroy_all
 User.destroy_all
 Participation.destroy_all
 
-user1 = User.create!(fullname: "bob", city: "city", description: "ook", email: "test@volunteers.com", password: "password")
+user1 = User.create!(fullname: "bob", city: "city", description: "ook", email: "test@volunteers.com", password: "password", admin: false)
 admin = User.create!(fullname: "je suis le chef", city: "la villa", description: "le patron", email: "admin@admin.com", password: "adminadmin", admin: true)
 
 puts "created #{User.count} users"

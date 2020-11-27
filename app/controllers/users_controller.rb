@@ -13,13 +13,14 @@ class UsersController < ApplicationController
 
   def update 
     
-    current_user.fullname = users_params[:fullname]
-    current_user.city = users_params[:city]
-    current_user.description = users_params[:description]
-    # current_user.photo.key = users_params[:photo].key
-    @user = current_user
-    @user.save
+    # current_user.fullname = users_params[:fullname]
+    # current_user.city = users_params[:city]
+    # current_user.description = users_params[:description]
+    @user = User.find(params[:id])
+    @user.update(users_params)
     authorize @user
+    # current_user.photo.key = users_params[:photo].key
+    # @user = current_user
     redirect_to user_path(@user)
   end
 

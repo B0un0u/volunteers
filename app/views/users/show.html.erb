@@ -16,10 +16,41 @@
       <%= @user.description %> <br>
     </div>
   </div>
-  <div class = "d-flex justify-content-between mt-5 bg-white p-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
-    <p class = "font-weight-bold ">Les missions auxquelles je suis inscrit(e): </p>
-
+  <div class = "mt-5 bg-white p-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
+    <p class = "font-weight-bold ">Les missions auxquelles je suis inscrit(e):</p>
+      <div class="cards-user bg-white p-3 mt-4">
+    <% @user.missions.each do |mission| %>
+      <%= link_to  mission_path(mission) do %>
+        <% if mission.photo.attached?%>
+          <div class="card-category-user p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path mission.photo.key %>');">
+            <h4><%= mission.title.capitalize %></h4>
+            <p><%= mission.location.capitalize %></p>
+            <p id="date-mission"><%=mission.start_time.strftime("%d/%m/%Y")%></p>
+            <p id="quota-mission"><i class="fas fa-user-friends"></i> <%="#{mission.participations.count}  / #{mission.quota}"%> </p>
+          </div>
+        <% else %>
+          <div class="card-category-user p-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dgrrbkgz4/image/upload/v1606412867/drurojfaw2bmayozxkbe.jpg)">
+            <h4><%= mission.title.capitalize %></h4>
+            <p><%= mission.location.capitalize %></p>
+            <p id="date-mission"><%=mission.start_time.strftime("%d/%m/%Y")%></p>
+            <p id="quota-mission"><i class="fas fa-user-friends"></i> <%="#{mission.participations.count}  / #{mission.quota}"%> </p>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
   <div class= "d-flex justify-content-center">
     <% if policy(@user).edit? %>
     <%= link_to "Modifier le profil", edit_user_registration_path(@user), class: "btn btn-ghost mt-5"  %>

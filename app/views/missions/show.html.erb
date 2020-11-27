@@ -19,13 +19,12 @@
 
 
 <div class = "bg-white my-5" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
-
   <div class = "d-flex justify-content-between p-3">
     <div>
       <% if @mission.photo.attached? %>
         <%= cl_image_tag @mission.photo.key, width: 600, height: 250, crop: :fill %>
       <% else %>
-        <%= cl_image_tag("yyutdl8x5r9rio2atwzp", width: 600, height: 250, crop: :fill, gravity: :north, class: "show-mission-image")%>
+        <%= cl_image_tag("drurojfaw2bmayozxkbe", width: 600, height: 250, crop: :fill, gravity: :north) %>
       <% end %>
     </div>
     <div>
@@ -60,12 +59,16 @@
     <% end %>
 <% end %>
 </div>
-
 <div class = "d-flex justify-content-between mt-5 mx-4">
   <%= link_to "RETOUR", missions_path, class: "btn btn-ghost" %>
   <% if policy(@mission).destroy? %>
     <%= link_to "SUPPRIMER", mission_path(@mission), method: :delete, class: "btn btn-ghost red-bg"  %>
-<% end %>
+  <% end %>
+  <% if policy(@mission).update? %>
+    <% if @mission.done == false %>
+      <%= link_to "TERMINEE", mission_path(@mission), method: :patch, class: "btn btn-ghost green-bg"  %>
+    <% end %>
+  <% end %>
 <% if @mission.users.include?(current_user) %>
     <%= link_to "SE DESINSCRIRE", mission_participation_path(@mission), method: :delete, class: "btn btn-ghost" %>
   <% else %>
@@ -73,3 +76,4 @@
   <% end %>
 </div>
 </div>
+

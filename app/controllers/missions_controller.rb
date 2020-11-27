@@ -5,7 +5,7 @@ class MissionsController < ApplicationController
     if params[:user_id]
       @missions = current_user.missions
     else
-    @missions = policy_scope(Mission).order(created_at: :desc)
+      @missions = policy_scope(Mission).order(created_at: :desc)
     end
   end
 
@@ -40,7 +40,6 @@ class MissionsController < ApplicationController
     @mission.destroy
     redirect_to missions_path
   end
-
 
   private
 

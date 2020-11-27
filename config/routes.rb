@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show, :edit, :update]
-  resources :missions, only: [:index, :show, :new, :create, :destroy] do
+  resources :missions do
     # collection do
     #   get :profile
     # end

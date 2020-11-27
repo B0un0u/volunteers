@@ -5,7 +5,7 @@ class MissionsController < ApplicationController
     if params[:user_id]
       @missions = current_user.missions
     else
-    @missions = policy_scope(Mission).order(created_at: :desc)
+      @missions = policy_scope(Mission).order(created_at: :desc)
     end
   end
 
@@ -41,6 +41,13 @@ class MissionsController < ApplicationController
     redirect_to missions_path
   end
 
+  def update
+    @mission = Mission.find(params[:id])
+    @mission.done = true
+    authorize @mission
+    @mission.update({ done: true })
+    redirect_to mission_path(@mission)
+  end
 
   private
 

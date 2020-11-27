@@ -1,26 +1,28 @@
-<h2><%= @user.fullname %></h2>
-<%= @user.city %>
-<%= @user.description %>
-  <% if @user.photo.attached? %>
-    <%=cl_image_tag @user.photo.key, :transformation=>[{height: 160, width: 160, crop: :fill, radius: 40}]%>
-      
-
-  <% else %>
-    <%= image_tag "photo-avatar-profil.png", class: "avatar-large" %>
-
-  <% end %>
-
-  <% if policy(@user).edit? %>
-    <%= link_to "Modifier le profil", edit_user_registration_path(@user), class: "btn btn-ghost"  %>
-  <% end %>
- 
-
-
-
-<div>
-    Les missions auxquelles je suis inscrit(e):
-    <% @missions.each do |mission| %>
-      <p><%= mission.title %></p>
+<div class = "container">
+  <div class = "d-flex justify-content-between align-items-center mt-5 bg-white p-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
+    <div>
+      <h2><%= @user.fullname.capitalize %></h2>
+      <p class = "font-weight-bold "> <%= @user.city.capitalize %> </p>
+    </div>
+    <% if @user.photo.attached? %>
+    <%=cl_image_tag @user.photo.key, :transformation=>[{width: 130, crop: :fill, gravity: :face, radius: 40}]%>
+    <% else %>
+    <%= image_tag "photo-avatar-profil.png", class: "avatar-bordered" %>
     <% end %>
-</div>
+  </div>
+  <div class = "mt-5 bg-white p-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
+    <div>
+      <p class = "font-weight-bold "> Ma description : </p>
+      <%= @user.description %> <br>
+    </div>
+  </div>
+  <div class = "d-flex justify-content-between mt-5 bg-white p-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); border-radius: 5px">
+    <p class = "font-weight-bold ">Les missions auxquelles je suis inscrit(e): </p>
 
+  </div>
+  <div class= "d-flex justify-content-center">
+    <% if policy(@user).edit? %>
+    <%= link_to "Modifier le profil", edit_user_registration_path(@user), class: "btn btn-ghost mt-5"  %>
+  </div>
+  <% end %>
+</div>

@@ -11,14 +11,19 @@ Mission.destroy_all
 User.destroy_all
 Participation.destroy_all
 
-user1 = User.create!(fullname: "bob", city: "city", description: "ook", email: "test@volunteers.com", password: "password", admin: false)
-admin = User.create!(fullname: "je suis le chef", city: "la villa", description: "le patron", email: "admin@admin.com", password: "adminadmin", admin: true)
+user1 = User.create!(fullname: "Rémi", city: "city", description: "salut mdr", email: "remi@admin.com", password: "password", admin: false)
+farouk = User.create!(fullname: "Farouk", city: "la cité", description: "wesh", email: "farouk@admin.com", password: "password", admin: true)
+claire = User.create!(fullname: "Claire", city: "la villa", description: "cc", email: "claire@admin.com", password: "password", admin: true)
+luc = User.create!(fullname: "Luc", city: "ici", description: "je suis le chef", email: "luc@admin.com", password: "password", admin: true)
+rebec = User.create!(fullname: "Rebec", city: "avec les enfants", description: "onjour c moi", email: "rebec@admin.com", password: "password", admin: true)
+thomas = User.create!(fullname: "Thomas", city: "à la maison", description: "j'aime lke bénévolat", email: "thomas@admin.com", password: "password", admin: false)
+
 
 puts "created #{User.count} users"
 
 
-mission1 = Mission.create!(title: "ramassage de déchets sur la plage", location: "Plage de Nice", description: "A l'occasion de la journee mondiale de l'environnement, nous organisons une collecte de déchets a la plage de Nice et nous cherchons plusieurs benevoles. Rendez-vous a 10h a la plage de Nice. ", user: user1, quota: 25, start_time: DateTime.new(2020,12,11,10,0,0), end_time: DateTime.new(2020,12,11,14,0,0))
-mission2 = Mission.create!(title: "distribution de repas pour les sans-abris", location: "Place Jean-Medecin", description: "Nous organisons une distribution de repas pour les sans-abris et nous avons beoin de benevoles pour nous aider dans la logistique.", user: user1, quota: 25, start_time: DateTime.new(2020,12,15,17,30,0), end_time: DateTime.new(2020,12,15,19,30,0))
+mission1 = Mission.create!(title: "ramassage de déchets sur la plage", location: "Plage de Nice", description: "A l'occasion de la journee mondiale de l'environnement, nous organisons une collecte de déchets a la plage de Nice et nous cherchons plusieurs benevoles. Rendez-vous a 10h a la plage de Nice. ", user: user1, quota: 2, start_time: DateTime.new(2020,12,11,10,0,0), end_time: DateTime.new(2020,12,11,14,0,0))
+mission2 = Mission.create!(title: "distribution de repas pour les sans-abris", location: "Place Jean-Medecin", description: "Nous organisons une distribution de repas pour les sans-abris et nous avons beoin de benevoles pour nous aider dans la logistique.", user: user1, quota: 1, start_time: DateTime.new(2020,12,15,17,30,0), end_time: DateTime.new(2020,12,15,19,30,0))
 
 
 puts "created #{Mission.count} missions"

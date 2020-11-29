@@ -1,15 +1,22 @@
 class UsersController < ApplicationController
+
+  
   def show
     @user = User.find(params[:id])
     @missions = @user.missions
     authorize @user
   end
 
-  def edit
-    raise
-    @user = current_user
+  def new
+    @user = User.new
     authorize @user
   end
+
+  # def edit
+  #   raise
+  #   @user = current_user
+  #   authorize @user
+  # end
 
   def update 
     

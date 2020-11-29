@@ -42,11 +42,12 @@ import { initAutocomplete } from '../channels/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
-})
+});
 
 
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css'
+import 'flatpickr/dist/flatpickr.min.css';
+
 
 flatpickr(".datepicker", {
   // altInput: true,

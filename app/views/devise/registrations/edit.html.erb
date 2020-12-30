@@ -1,5 +1,5 @@
 <h2>Modifier mon profil</h2>
-<div class="container justify-content-center d-flex align-items-center">
+<div class="container justify-content-center d-flex align-items-center mb-3">
 <div class= "sign-form p-4">
 
   <div class="form-inputs">
@@ -44,8 +44,9 @@
 
 </div>
 </div>
+<%= link_to "Retour", :back, class: "d-flex justify-content-center" %>
 <%# <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Supprimez mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sur?" }, method: :delete %>
 
-<%= link_to "Retour", :back  %>
+

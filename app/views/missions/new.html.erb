@@ -14,10 +14,14 @@
                   placeholder: "L'adresse précise de la mission"%>
       <%= f.input :start_time ,
                   label: false,
-                  placeholder: "Date de début"%>
+                  placeholder: "Date de début",
+                  as: :string,
+                  input_html: { class: "datepicker"} %>
       <%= f.input :end_time ,
                   label: false,
-                  placeholder: "Date de fin"%>
+                  placeholder: "Date de fin",
+                  as: :string,
+                  input_html: { class: "datepicker"} %>
       <%= f.input :quota ,
                   label: false,
                   placeholder: "Le nombre de personnes maximum"%>
